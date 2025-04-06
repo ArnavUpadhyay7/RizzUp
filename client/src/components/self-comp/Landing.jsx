@@ -1,15 +1,14 @@
 import React from 'react'
 import { BackgroundGradientDemo } from '../aceternity/BackgroundGradientDemo'
 import { FaHeart, FaComments, FaUserCheck } from 'react-icons/fa'
-import VideoCarousel from './VideoSection'
-import VideoSection from './VideoSection'
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    <div className="bg-zinc-950 md:px-36 px-6 pt-32 h-[200vh] text-white">
-      
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-3xl animate-gradientMove rounded-full pointer-events-none"></div>
+    <div className="bg-zinc-950 md:px-36 px-6 pt-32 text-white">
 
+      {/* Background Gradient Animation */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-3xl animate-gradientMove rounded-full pointer-events-none"></div>
       <div className="absolute top-[80vh] left-[60vw] w-[30vw] h-[25vh] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 blur-3xl animate-gradientMove rounded-full pointer-events-none"></div>
 
       <div className="md:flex justify-between items-start w-full">
@@ -22,12 +21,12 @@ const Landing = () => {
           <p className="text-lg text-gray-400">
             Swipe, match, and meet your perfect match instantly.
           </p>
-          <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:scale-105 shadow-lg cursor-pointer">
+          <Link to="cards" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:scale-105 shadow-lg cursor-pointer">
             Start Swiping
-          </button>
+          </Link>
 
           {/* Decorative Gradient Line */}
-          <div className="h-1 md:w-[40vw] bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+          <div className="mt-10 h-1 md:w-[40vw] bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
 
           {/* Feature Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
@@ -60,9 +59,6 @@ const Landing = () => {
         </div>
       </div>
 
-      <div className='mt-14 mx-auto'>
-        <VideoSection />
-      </div>
     </div>
   )
 }

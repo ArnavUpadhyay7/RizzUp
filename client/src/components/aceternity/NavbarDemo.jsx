@@ -1,12 +1,8 @@
-import { Navbar, NavBody, NavItems, MobileNav, NavbarLogo, NavbarButton, MobileNavHeader, MobileNavToggle, MobileNavMenu} from "./resizable-navbar";
+import { Navbar, NavBody, MobileNav, NavbarLogo, NavbarButton, MobileNavHeader, MobileNavToggle, MobileNavMenu} from "./resizable-navbar";
   import { useState } from "react";
+  import { Link } from "react-router-dom";
   
   export function NavbarDemo() {
-    const navItems = [
-      { name: "Features", link: "#features" },
-      { name: "Pricing", link: "#pricing" },
-      { name: "Contact", link: "#contact" },
-    ];
   
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -16,11 +12,12 @@ import { Navbar, NavBody, NavItems, MobileNav, NavbarLogo, NavbarButton, MobileN
           {/* Desktop Navigation */}
           <NavBody>
             <NavbarLogo />
-            <NavItems items={navItems} />
-            <div className="flex items-center gap-4">
-              <NavbarButton variant="secondary">Login</NavbarButton>
-              <NavbarButton variant="primary">Book a call</NavbarButton>
+            <div className="flex gap-4">
+              <Link className="pr-4 cursor-pointer hover:font-semibold" to="login">Requests</Link>
+              <Link className="pr-4 cursor-pointer hover:font-semibold" to="login">Connections</Link>
+              <Link className="pr-4 cursor-pointer hover:font-semibold" to="login">Login</Link>
             </div>
+            <Link className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-1 rounded-full text-lg font-semibold hover:scale-105 shadow-lg cursor-pointer" to="login">Login</Link>
           </NavBody>
   
           {/* Mobile Navigation */}
@@ -34,31 +31,20 @@ import { Navbar, NavBody, NavItems, MobileNav, NavbarLogo, NavbarButton, MobileN
             </MobileNavHeader>
   
             <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-              {navItems.map((item, idx) => (
-                <a
-                  key={`mobile-link-${idx}`}
-                  href={item.link}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-neutral-600 dark:text-neutral-300"
-                >
-                  <span className="block">{item.name}</span>
-                </a>
-              ))}
+            <div className="flex flex-col mx-auto text-lg">
+              <Link className="font-semibold pr-4 cursor-po" to="login">Requests</Link>
+              <Link className="font-semibold pr-4 cursor-po" to="login">Connections</Link>
+              <Link className="font-semibold pr-4 cursor-po" to="login">Login</Link>
+            </div>
               <div className="flex w-full flex-col gap-4">
-                <NavbarButton
+                <Link 
+                  to="login"
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
-                  className="w-full"
+                  className="w-full py-2 bg-white text-black text-center rounded-md font-bold"
                 >
                   Login
-                </NavbarButton>
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full"
-                >
-                  Book a call
-                </NavbarButton>
+                </Link>
               </div>
             </MobileNavMenu>
           </MobileNav>

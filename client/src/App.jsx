@@ -2,6 +2,8 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./components/self-comp/Landing";
 import { NavbarDemo } from "./components/aceternity/NavbarDemo";
+import Cards from "./pages/Cards";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -10,7 +12,8 @@ function App() {
         <NavbarDemo />
         <Routes>
           <Route path="/" element={<Landing />} />
-          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/cards" element={<Cards />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
